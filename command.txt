@@ -1,0 +1,9 @@
+      # Command #
+
+*install venv Folder* = python -m venv venv
+
+*activate* = source myenv/Scripts/activate
+
+*deactivate* = deactivate
+
+*Run* = uvicorn main:app --reload
