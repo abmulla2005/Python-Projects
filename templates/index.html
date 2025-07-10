@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .gallery { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            margin-top: 20px;
+        }
+        .image-item {
+            position: relative;
+            display: inline-block;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            transition: transform 0.2s;
+        }
+        .image-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .image-item img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+        h2, h3 { color: #333; }
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .delete-button:hover {
+            background: rgba(255, 0, 0, 1);
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload New Image</h2>
+    <form method="post" enctype="multipart/form-data" action="/">
+        <input type="file" name="fileImage" required accept="image/*">
+        <button type="submit" style="margin-top: 10px; padding: 8px 15px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Upload Image
+        </button>
+    </form>
+
+    <h3>Public Gallery (Click to View Full Size)</h3>
+    <div class="gallery">
+        {% if images %}
+            {% for filename in images %}
+                <div class="image-item">
+                    <a href="/img/{{ filename }}" target="_blank">
+                        <img src="/img/{{ filename }}" alt="Uploaded Image">
+                    </a>
+                    <form method="post" action="/delete" style="position:absolute; top:5px; right:5px;">
+                        <input type="hidden" name="filename" value="{{ filename }}">
+                        <button type="submit" class="delete-button" title="Delete image">X</button>
+                    </form>
+                </div>
+            {% end %}
+        {% else %}
+            <p>No images uploaded yet. Be the first to upload!</p>
+        {% end %}
+    </div>
+</body>
+</html>
