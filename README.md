@@ -18,6 +18,7 @@ A simple Tornado-based web application to upload, view, and delete image files. 
 ├── main.py # Tornado server with upload/delete/image API
 ├── upload/ # Uploaded images (auto-created)
 ├── templates/
+
 │ └── index.html # Gallery and upload form
 ├── README.md # Project documentation
 
