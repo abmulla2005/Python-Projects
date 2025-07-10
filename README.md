@@ -21,9 +21,6 @@ A simple Tornado-based web application to upload, view, and delete image files. 
 │ └── index.html # Gallery and upload form
 ├── README.md # Project documentation
 
-yaml
-Copy
-Edit
 
 ---
 
@@ -31,7 +28,7 @@ Edit
 
 ### 1. 🔧 Install dependencies
 
-```bash
+```
 pip install tornado
 2. ▶️ Start the server
 bash
@@ -43,15 +40,11 @@ The server will run at:
 
 📷 API Endpoint
 Get image metadata (JSON)
-h
-Copy
-Edit
+
+
 GET /image-data
 Example response:
 
-json
-Copy
-Edit
 [
   {
     "filename": "abcd1234_image.jpg",
@@ -61,6 +54,7 @@ Edit
     "file_path": "/img/abcd1234_image.jpg"
   }
 ]
+
 🔐 Security Features
 Filenames are sanitized and made unique using UUID
 
@@ -86,13 +80,5 @@ Made with ❤️ using Tornado.
 🏷️ License
 MIT License – free to use, modify, and distribute.
 
-yaml
-Copy
-Edit
-
 ---
 
-### ✅ Save it as:
-
-```bash
-README.md
