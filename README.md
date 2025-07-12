@@ -31,9 +31,7 @@ A simple Tornado-based web application to upload, view, and delete image files. 
 ```
 pip install tornado
 2. ▶️ Start the server
-bash
-Copy
-Edit
+
 python main.py
 The server will run at:
 📍 http://localhost:8080
